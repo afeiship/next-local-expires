@@ -8,10 +8,22 @@
       store = new NxLocalExpires();
     });
 
-    test('--- set ---', function() {
-      store.set('exp1', {
-        expires: 864000
-      });
+    test('--- set will expires, get null ---', function(done) {
+      store.set('login', { token: 'YWRmajEyMzMx' }, Date.now() + 1 * 1000);
+      setTimeout(() => {
+        expect(store.get('login')).toBe(null);
+        done();
+      }, 2000);
+    });
+
+    test('--- set will in time, get the right value ---', function(done) {
+      store.set('login', { token: 'YWRmajEyMzMx' }, Date.now() + 3 * 1000);
+      setTimeout(() => {
+        var res = store.get('login');
+        // console.log(res);
+        expect(res.token).toBe('YWRmajEyMzMx');
+        done();
+      }, 2000);
     });
   });
 })();
