@@ -2,8 +2,8 @@
  * name: @feizheng/next-local-expires
  * description: LocalStorage which can be set expires.
  * url: https://github.com/afeiship/next-local-expires
- * version: 1.1.0
- * date: 2020-03-20 15:37:52
+ * version: 1.1.1
+ * date: 2020-03-20 15:39:25
  * license: MIT
  */
 
