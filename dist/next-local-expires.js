@@ -1,16 +1,18 @@
 /*!
- * name: next-local-expires
+ * name: @feizheng/next-local-expires
+ * description: LocalStorage which can be set expires.
  * url: https://github.com/afeiship/next-local-expires
- * version: 1.0.0
- * date: 2019-07-04T14:17:11.864Z
+ * version: 1.1.0
+ * date: 2020-03-20 15:37:52
  * license: MIT
  */
 
 (function() {
   var global = global || this || window || Function('return this')();
-  var nx = global.nx || require('next-js-core2');
-  var _ = nx.json || require('next-json');
-  var DEFAULT_OPTIONS = { prefix: '__EXPIRES__', expKey: 'expires' };
+  var nx = global.nx || require('@feizheng/next-js-core2');
+
+  var _ = nx.json || require('@feizheng/next-json');
+  var DEFAULT_OPTIONS = { prefix: '__EXPIRES__', expiresKey: 'expires' };
   var EMPTY_STR = '';
   var SEPARATOR = '@';
 
@@ -24,17 +26,17 @@
       set: function(inKey, inValue, inExpires) {
         var key = this.__key(inKey);
         localStorage.setItem(key, nx.stringify(inValue));
-        localStorage.setItem(this.__expKey(), inExpires);
+        localStorage.setItem(this.__expiresKey(), inExpires);
       },
       get: function(inKey) {
         var key = this.__key(inKey);
         var now = Date.now();
-        var expires = localStorage.getItem(this.__expKey());
+        var expires = localStorage.getItem(this.__expiresKey());
         if (now < expires) {
           return nx.parse(localStorage.getItem(key));
         } else {
           localStorage.removeItem(key);
-          localStorage.removeItem(this.__expKey());
+          localStorage.removeItem(this.__expiresKey());
           return null;
         }
       },
@@ -42,8 +44,8 @@
         var prefix = this.prefix;
         return prefix ? [prefix, SEPARATOR, inKey].join(EMPTY_STR) : inKey;
       },
-      __expKey: function() {
-        return this.__key(this.options.expKey);
+      __expiresKey: function() {
+        return this.__key(this.options.expiresKey);
       }
     }
   });

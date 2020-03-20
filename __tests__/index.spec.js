@@ -1,5 +1,5 @@
 (function() {
-  var nx = require('next-js-core2');
+  require('@feizheng/next-js-core2');
   var NxLocalExpires = require('../src/next-local-expires');
 
   describe('Basic test', function() {
