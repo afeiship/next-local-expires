@@ -37,5 +37,10 @@
   },
   "dependencies": {
     "@jswork/next-json": "^1.0.0"
-  }
+  },
+  "keywords": [
+    "next",
+    "localstorage",
+    "expires"
+  ]
 }

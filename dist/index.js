@@ -3,7 +3,7 @@
  * description: LocalStorage which can be set expires.
  * homepage: https://github.com/afeiship/next-local-expires
  * version: 1.0.0
- * date: 2020-11-22 16:07:48
+ * date: 2020-11-22 16:08:31
  * license: MIT
  */
 
