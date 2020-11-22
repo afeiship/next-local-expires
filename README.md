@@ -19,7 +19,7 @@ npm install -S @jswork/next-local-expires
 
 ## usage
 ```js
-import NxLocalExpires from '@feizheng/next-local-expires';
+import NxLocalExpires from '@jswork/next-local-expires';
 
 // code goes here:
 const store = new NxLocalExpires();
